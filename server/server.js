@@ -5,8 +5,8 @@ const port = process.env.PORT || 5000;
 const app = express();
 const mongoose = require('mongoose');
 const databaseUrl = 'mongodb://localhost:27017/tastysnakes';
-mongoose.connect(databaseUrl,  {useNewUrlParser: true });
-mongoose.connection.on('connected', () =>{
+mongoose.connect(databaseUrl, { useNewUrlParser: true });
+mongoose.connection.on('connected', () => {
     console.log('connected to database');
 });
 mongoose.connection.on('error', (error) => {
@@ -15,8 +15,8 @@ mongoose.connection.on('error', (error) => {
 
 const schema = mongoose.Schema;
 const snakeSchema = new schema({
-    species: {type: String, required: true},
-    venomous: {type: Boolean}
+    species: { type: String, required: true },
+    venomous: { type: Boolean }
 });
 const Snake = mongoose.model('snakes', snakeSchema);
 snakeArray = [{
